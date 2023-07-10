@@ -8,10 +8,7 @@ using UnityStandardAssets.Cameras;
 
 public class QuadroInput : MonoBehaviour
 {
-    private bool isLeftDown = false;
-    private bool isRightDown = false;
-    private float steeringValue = 0;
-    private float steeringVelocity = 0;
+    
 
     private bool jump;
 
@@ -87,8 +84,8 @@ public class QuadroInput : MonoBehaviour
 
         float rotationYAxis = SimpleInput.GetAxis("HorizontalArrow") * rotationSpeed;
         float moveHorizontal = SimpleInput.GetAxis("VerticalArrow") * rotationSpeed;
-       
-        
+        // не работает
+        //PlayAudio();
 
 
         // Make it move 10 meters per second instead of 10 meters per frame...
@@ -112,37 +109,17 @@ public class QuadroInput : MonoBehaviour
         
 
         gameObject.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, moveHorizontal, 0) * speed);
-
-
-        
-        // функция аплай форс и 
-        if (SimpleInput.GetKey(KeyCode.W)) {  }
     }
-    // нерабочая функция
-    public void InputTransform()
-    {
-        if (SimpleInput.GetAxis("Horizontal") < 0)
-        {
-            gameObject.transform.rotation = carrentTrans[1].transform.rotation;
-        }
-        
-        if (SimpleInput.GetAxis("Horizontal") > 0)
-        {
-            gameObject.transform.rotation = carrentTrans[2].transform.rotation;
-        }
 
-        if (SimpleInput.GetAxis("Vertical") < 0)
-        {
-            gameObject.transform.rotation = carrentTrans[3].transform.rotation;
+    public void PlayAudio()
+    {
+        if (SimpleInput.GetButtonDown("W")) 
+        { 
+            flyAudioSource.Play();
+            flyAudioSource.volume = 0.5f;
         }
-        if (SimpleInput.GetAxis("Vertical") == 0)
-        {
-            gameObject.transform.rotation = carrentTrans[0].transform.rotation;
-        }
-        if (SimpleInput.GetAxis("Vertical") > 0)
-        {
-            gameObject.transform.rotation = carrentTrans[4].transform.rotation;
-        }
+        if (SimpleInput.GetButtonUp("W")) { flyAudioSource.Stop(); }
+        
     }
     private void ApplyForce(Rigidbody body)
     {
@@ -152,10 +129,10 @@ public class QuadroInput : MonoBehaviour
     private void InputMouse()
     {
         // Get the mouse delta. This is not in the range -1...1
-        float h = horizontalSpeed * Input.GetAxis("Mouse X");
-        float v = verticalSpeed * Input.GetAxis("Mouse Y");
+        float h = horizontalSpeed * SimpleInput.GetAxis("Mouse X");
+        float v = verticalSpeed * SimpleInput.GetAxis("Mouse Y");
 
-        
+  
 
         gameObject.transform.Rotate(0, 0, 0);
     }
@@ -183,8 +160,8 @@ public class QuadroInput : MonoBehaviour
         }
         */
         deathCanvas.SetActive(true);
-        FreeLookCam flc = flcGm.GetComponent<FreeLookCam>();
-        flc.enabled = false;
+        var qc = flcGm.GetComponent<QuadroCamera>();
+        qc.targetDeath = true;
         mainModels.SetActive(false);
         rbModels.SetActive(true);
     }
