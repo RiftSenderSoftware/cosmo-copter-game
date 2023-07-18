@@ -6010,22 +6010,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6529536456227143897, guid: f426d61dbc4d9b443b07f851b049a22f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6529816073810093511, guid: f426d61dbc4d9b443b07f851b049a22f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7193720214672118848, guid: f426d61dbc4d9b443b07f851b049a22f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1900675181501435956}
-    - target: {fileID: 7193720214672118848, guid: f426d61dbc4d9b443b07f851b049a22f, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: RestartPreset
-      objectReference: {fileID: 0}
-    - target: {fileID: 7193720214672118848, guid: f426d61dbc4d9b443b07f851b049a22f, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Restart, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 7193720214672118848, guid: f426d61dbc4d9b443b07f851b049a22f, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 8446276270048465307, guid: f426d61dbc4d9b443b07f851b049a22f, type: 3}
       propertyPath: m_Name
       value: Player
@@ -44225,6 +44221,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfdf87e896228b84c9bef848dd4c7ec8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetDeath: 0
+  car: {fileID: 0}
+  distance: 6.4
+  height: 1.4
+  rotationDamping: 3
+  heightDamping: 2
+  zoomRatio: 0.5
+  defaultFOV: 60
 --- !u!1 &2064448904
 GameObject:
   m_ObjectHideFlags: 0
@@ -44526,6 +44530,10 @@ PrefabInstance:
     - target: {fileID: 4179706751637014335, guid: 785771c77066d5249be74b9dc89035b4, type: 3}
       propertyPath: m_Name
       value: DeathZone
+      objectReference: {fileID: 0}
+    - target: {fileID: 4179706751637014335, guid: 785771c77066d5249be74b9dc89035b4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 785771c77066d5249be74b9dc89035b4, type: 3}
