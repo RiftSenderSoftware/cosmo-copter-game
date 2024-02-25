@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using YG;
 using UnityEngine.SceneManagement;
 
 public class Restart : MonoBehaviour
@@ -16,6 +17,8 @@ public class Restart : MonoBehaviour
 
     public void RestartPreset()
     {
+        YandexGame.FullscreenShow();
+
         if (gameObject.name == "FinishLevel1")
         {
             SceneManager.LoadScene(1);

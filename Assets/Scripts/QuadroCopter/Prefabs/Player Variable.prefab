@@ -427,6 +427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfdf87e896228b84c9bef848dd4c7ec8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetDeath: 0
   car: {fileID: 0}
   distance: 6.4
   height: 1.4
