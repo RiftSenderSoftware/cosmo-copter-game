@@ -1,2 +1,2 @@
-Build path: C:/Users/user/Documents/GitHub/cosmo-copter-game/Builds
-Build number: 150
+Build path: C:/Users/user/Documents/GitHub/cosmo-copter-game/builds/0.2
+Build number: 153

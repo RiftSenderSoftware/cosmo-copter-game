@@ -6,19 +6,21 @@ using UnityEngine.SceneManagement;
 
 public class Restart : MonoBehaviour
 {
+    public GameObject continueBtn;
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.R))
-        {
-            RestartPreset();
-        }
+
     }
 
     public void RestartPreset()
     {
         YandexGame.FullscreenShow();
-
+        Time.timeScale = 0f;
+        continueBtn.SetActive(true);
+    }
+    public void ContinueBtn()
+    {
         if (gameObject.name == "FinishLevel1")
         {
             SceneManager.LoadScene(1);
