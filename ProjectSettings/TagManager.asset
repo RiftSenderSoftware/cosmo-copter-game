@@ -11,6 +11,7 @@ TagManager:
   - NPCHandFight
   - Dinamite
   - Ground
+  - Ball
   layers:
   - Default
   - TransparentFX

@@ -10,6 +10,7 @@ public class Explosion : MonoBehaviour
     public bool active;
 
     public GameObject ExplosionEffect;
+    public GameObject audioSource;
     private void Update()
     {
         if (active)
@@ -30,8 +31,9 @@ public class Explosion : MonoBehaviour
     {
         
         Collider[] overlappedColliders = Physics.OverlapSphere(transform.position, Radius);
+        
 
-        for(int i = 0; i < overlappedColliders.Length; i++) 
+        for (int i = 0; i < overlappedColliders.Length; i++) 
         {
 
             Rigidbody rigidbody = overlappedColliders[i].attachedRigidbody;
@@ -112,8 +114,12 @@ public class Explosion : MonoBehaviour
                 }
             }
         }
+        
         Destroy(gameObject);
         Instantiate(ExplosionEffect, transform.position, Quaternion.identity);
+
+        GameObject audioSourceTMP = Instantiate(audioSource, transform.position, Quaternion.identity);
+        Destroy(audioSourceTMP, 1);
     }
 
     private void OnDrawGizmosSelected()
